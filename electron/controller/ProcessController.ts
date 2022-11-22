@@ -11,6 +11,7 @@ const { parse, stringify, compile, decompile } = require('ass-compiler');
 
 ipcMain.handle('on-process-lyric-file-event', (e, args) => {
   console.log("ipcMain  on-process-lyric-event")
+  
 })
 ipcMain.handle('on-process-osu-file-event', (e, args) => {
   console.log("ipcMain  on-process-osu-event")
