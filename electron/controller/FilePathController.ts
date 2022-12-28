@@ -42,6 +42,7 @@ ipcMain.handle('on-select-ass-path-event', (e, msg) => {
     ]
   })
   return result.then(res => {
+    console.log(res)
     return res
   }, err => {
     return 'Select ass path error'

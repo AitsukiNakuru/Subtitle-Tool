@@ -12,14 +12,23 @@ const vuetify = createVuetify({
   components,
   directives,
 })
+import '@mdi/font/css/materialdesignicons.css'
 
 
-//import 'normalize.css'
-createApp(App)
-  .use(router)
-  .use(vuetify)
-  .mount('#app')
-  .$nextTick(() => {
-    postMessage({ payload: 'removeLoading' }, '*')
-  })
+import eventBus from "utils/EventBus";
+const app = createApp(App)
+
+app.use(router)
+app.use(vuetify)
+
+app.config.globalProperties.eventHub = eventBus
+app.mount('#app')
+// @ts-ignore
+// app.$nextTick(() => {
+//   postMessage({payload: 'removeLoading'}, '*')
+// })
+
+
+
+
 

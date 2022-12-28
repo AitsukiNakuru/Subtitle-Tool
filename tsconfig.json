@@ -11,12 +11,17 @@
     "baseUrl": "./",
     "strict": true,
     "paths": {
-      "views/*": ["src/views/*"]
+      "views/*": ["src/views/*"],
+      "components/*": ["src/components/*"],
+      "utils/*": ["src/utils/*"],
+      "assets/*": ["assets/*"],
+      "config/*": ["config/*"]
     },
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true
   },
   "include": ["src", "./types"],
+
   "references": [
     { "path": "./tsconfig.node.json" }
   ]

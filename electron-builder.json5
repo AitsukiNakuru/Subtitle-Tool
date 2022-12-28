@@ -9,7 +9,11 @@
   },
   "files": [
     "dist-electron",
-    "dist"
+    "dist",
+  ],
+  "extraFiles": [
+    "./src/assets",
+    "./config"
   ],
   "mac": {
     "artifactName": "${productName}_${version}.${ext}",

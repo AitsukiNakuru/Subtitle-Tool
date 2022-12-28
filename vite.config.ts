@@ -13,7 +13,9 @@ import vuetify from "vite-plugin-vuetify";
 export default defineConfig({
   plugins: [
     vue(),
-    vuetify({ autoImport: true }), // Enabled by default
+    vuetify({
+      autoImport: true,
+    }), // Enabled by default
     electron({
       include: ['electron'],
       transformOptions: {
@@ -46,6 +48,22 @@ export default defineConfig({
       {
         find: "views",
         replacement: resolve(__dirname, "src/views"),
+      },
+      {
+        find: "assets",
+        replacement: resolve(__dirname, "assets")
+      },
+      {
+        find: "config",
+        replacement: resolve(__dirname, "config"),
+      },
+      {
+        find: "components",
+        replacement: resolve(__dirname, "src/components")
+      },
+      {
+        find: "utils",
+        replacement: resolve(__dirname, "src/utils")
       }
     ]
 

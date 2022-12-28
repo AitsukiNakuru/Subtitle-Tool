@@ -1,0 +1,124 @@
+{
+  "framework": {
+    "info": {
+      "Title": "Default Aegisub file",
+      "ScriptType": "v4.00+",
+      "WrapStyle": "0",
+      "ScaledBorderAndShadow": "yes",
+      "YCbCr Matrix": "None",
+      "PlayResX": "1920",
+      "PlayResY": "1080"
+    },
+    "width": 1920,
+    "height": 1080,
+    "collisions": "Normal",
+    "styles": {
+      "Default": {
+        "style": {
+          "Name": "Default",
+          "Fontname": "Arial",
+          "Fontsize": 20,
+          "PrimaryColour": "&H00FFFFFF",
+          "SecondaryColour": "&H000000FF",
+          "OutlineColour": "&H00000000",
+          "BackColour": "&H00000000",
+          "Bold": 0,
+          "Italic": 0,
+          "Underline": 0,
+          "StrikeOut": 0,
+          "ScaleX": 100,
+          "ScaleY": 100,
+          "Spacing": 0,
+          "Angle": 0,
+          "BorderStyle": 1,
+          "Outline": 2,
+          "Shadow": 2,
+          "Alignment": 2,
+          "MarginL": 10,
+          "MarginR": 10,
+          "MarginV": 10,
+          "Encoding": 1
+        },
+        "tag": {
+          "fn": "Arial",
+          "fs": 20,
+          "c1": "FFFFFF",
+          "a1": "00",
+          "c2": "0000FF",
+          "a2": "00",
+          "c3": "000000",
+          "a3": "00",
+          "c4": "000000",
+          "a4": "00",
+          "b": 0,
+          "i": 0,
+          "u": 0,
+          "s": 0,
+          "fscx": 100,
+          "fscy": 100,
+          "fsp": 0,
+          "frz": 0,
+          "xbord": 2,
+          "ybord": 2,
+          "xshad": 2,
+          "yshad": 2,
+          "fe": 1,
+          "q": 0
+        }
+      }
+    },
+    "dialogues": []
+  },
+  "dialogue": {
+    "layer": 0,
+    "start": 0,
+    "end": 0,
+    "style": "Default",
+    "name": "",
+    "margin": {
+      "left": 0,
+      "right": 0,
+      "vertical": 0
+    },
+    "effect": null,
+    "alignment": 2,
+    "slices": [
+      {
+        "style": "Default",
+        "fragments": []
+      }
+    ]
+  },
+  "fragment": {
+    "tag": {
+      "kf": 0
+    },
+    "text": "",
+    "drawing": null
+  },
+  "style": {
+    "Name": "Default",
+    "Fontname": "Arial",
+    "Fontsize": 20,
+    "PrimaryColour": "&H00FFFFFF",
+    "SecondaryColour": "&H000000FF",
+    "OutlineColour": "&H00000000",
+    "BackColour": "&H00000000",
+    "Bold": 0,
+    "Italic": 0,
+    "Underline": 0,
+    "StrikeOut": 0,
+    "ScaleX": 100,
+    "ScaleY": 100,
+    "Spacing": 0,
+    "Angle": 0,
+    "BorderStyle": 1,
+    "Outline": 2,
+    "Shadow": 2,
+    "Alignment": 2,
+    "MarginL": 10,
+    "MarginR": 10,
+    "MarginV": 10,
+    "Encoding": 1
+  }
+}

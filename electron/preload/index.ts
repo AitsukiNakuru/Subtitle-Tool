@@ -94,37 +94,71 @@
 
 const { contextBridge, ipcRenderer } = require('electron');
 
-const test = async () => {
-  return await ipcRenderer.invoke('on-test-event')
+const test =  () => {
+  console.log("ipcRenderer  test")
+  return ipcRenderer.invoke('on-test-event')
 }
 
 // Select file path
 const selectLyricPath = async () => {
-  console.log("ipcRenderer  selectLyricPath")
+  console.log("ipcRenderer selectLyricPath")
   return await ipcRenderer.invoke('on-select-lyric-path-event')
 }
 const selectOsuPath = async () => {
-  console.log("ipcRenderer  selectOsuPath")
+  console.log("ipcRenderer selectOsuPath")
   return await ipcRenderer.invoke('on-select-osu-path-event')
 }
 const selectAssPath = async () => {
-  console.log("ipcRenderer  selectAssPath")
+  console.log("ipcRenderer selectAssPath")
   return await ipcRenderer.invoke('on-select-ass-path-event')
 }
 
 // Process file
-const processLyricFile = async (lyricPath: string) => {
-  console.log("ipcRenderer  processLyricFile")
+const processLyricFile = async (lyricPath: String) => {
+  console.log("ipcRenderer processLyricFile")
   return ipcRenderer.invoke('on-process-lyric-file-event', lyricPath)
 }
-const processOsuFile = async (osuPath: string) => {
-  console.log("ipcRenderer  processOsuFile")
+const processOsuFile = async (osuPath: String) => {
+  console.log("ipcRenderer processOsuFile")
   return ipcRenderer.invoke('on-process-osu-file-event', osuPath)
 }
-const processAssFile = async (assPath: string) => {
-  console.log("ipcRenderer  processAssFile")
+const processAssFile = async (assPath: String) => {
+  console.log("ipcRenderer processAssFile")
   return ipcRenderer.invoke('on-save-ass-file-event', assPath)
 }
+
+// Load file
+const loadLyricFile = async (lyricPath: String) => {
+  console.log("ipcRenderer loadLyricFile" + lyricPath)
+  return ipcRenderer.invoke('on-load-lyric-file-event', lyricPath)
+}
+const loadOsuFile = async (osuPath: String) => {
+  console.log("ipcRenderer loadOsuFile"+ osuPath)
+  return ipcRenderer.invoke('on-load-osu-file-event', osuPath)
+}
+const loadAllFile = async (...args) => {
+  console.log("ipcRenderer loadAllFile", args)
+  return ipcRenderer.invoke('on-load-all-file-event', args)
+}
+const generateAssFile = async (editedLyricData, osuPath, assPath) => {
+  console.log("ipcRenderer generateAssFile")
+  return await ipcRenderer.invoke('on-generate-ass-file-event', editedLyricData, osuPath, assPath)
+}
+
+// Modify config
+const openConfig = async () => {
+  console.log("ipcRenderer openConfigFile")
+  return await ipcRenderer.invoke('on-open-config-event')
+}
+const modifyRulerJa = async () => {
+  console.log("ipcRenderer modifyRulerJa")
+  return await ipcRenderer.invoke('on-modify-ruler-ja-event')
+}
+const modifyConfig = async () => {
+  console.log("ipcRenderer modifyConfig")
+  return await ipcRenderer.invoke('on-modify-config-event')
+}
+
 
 contextBridge.exposeInMainWorld('myApi', {
   test,
@@ -133,7 +167,14 @@ contextBridge.exposeInMainWorld('myApi', {
   selectLyricPath,
   processAssFile,
   processOsuFile,
-  processLyricFile
+  processLyricFile,
+  modifyRulerJa,
+  modifyConfig,
+  openConfig,
+  generateAssFile,
+  loadAllFile,
+  loadLyricFile,
+  loadOsuFile,
 })
 
 

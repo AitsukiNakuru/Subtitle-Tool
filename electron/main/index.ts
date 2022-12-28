@@ -67,6 +67,9 @@ async function createWindow() {
   // automatically (the listeners will be removed when the window is closed)
   // and restore the maximized or full screen state
   mainWindowState.manage(win);
+  // 打开开发工具
+  win.webContents.openDevTools()
+
   if (process.env.VITE_DEV_SERVER_URL) { // electron-vite-vue#298
     win.loadURL(url)
     // Open devTool if the app is not packaged
