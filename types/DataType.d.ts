@@ -8,7 +8,7 @@ type OsuData = {
   timeLineArray: [{
     startTime: String
     endTime: String
-    objectCount: [Number]
+    objectCount: number
   }]
 
 }

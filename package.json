@@ -1,11 +1,11 @@
 {
-  "name": "osu-to-ass",
+  "name": "subtitle-tool",
   "version": "1.0.0",
   "main": "dist-electron/main/index.js",
-  "description": "osu to ass",
-  "author": "Lin Zhen Ya",
-  "license": "MIT",
-  "private": true,
+  "description": "Subtitle Tool",
+  "author": "Aitsuki Nakuru",
+  "license": "None",
+  "private": false,
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build && electron-builder"

@@ -3,16 +3,16 @@
     <v-table>
       <thead >
       <tr class="table-header">
-        <th class="text-left" style="width: 100px; " >
+        <th class="text-left" style="width: 5%; " >
           Time
         </th>
-        <th class="text-left">
-          Segment Lyric
+        <th class="text-left" style="width: 85%;">
+          Lyric
         </th>
-        <th class="text-left">
+        <th class="text-left" style="width: 5%;">
           Objects
         </th>
-        <th class="text-left">
+        <th class="text-left" style="width: 5%;">
           Status
         </th>
       </tr>
@@ -34,11 +34,16 @@
           </td>
 
           <td>
-
+            <div>{{osuData.timeLineArray[index].objectCount}}</div>
           </td>
 
           <td>
-
+            <div v-if="osuData.timeLineArray[index].objectCount - computedLyricData.segmentLyricLengthArray[index] ===0">
+              Accept
+            </div>
+            <div v-else>
+              Wrong Answer
+            </div>
           </td>
         </tr>
       </tbody>
@@ -53,7 +58,7 @@ type OsuData = {
   timeLineArray: [{
     startTime: String
     endTime: String
-    objectCount: [Number]
+    objectCount: number
   }]
 
 }

@@ -122,7 +122,6 @@ const convertTxtToOsu = async (editedLyricData, osuPath, assPath) => {
   // 遍历beatmap中的每一个object
   for (const hitObject of beatmap.hitObjects)
   {
-
     // 将hitObjectTime转换为assTime
     // let convertedStartTime = time.ass(hitObject.startTime)
     // let convertedEndTime = time.ass(hitObject.endTime)
@@ -156,6 +155,7 @@ const convertTxtToOsu = async (editedLyricData, osuPath, assPath) => {
 
     // 如果是一组combo中的最后一个hitObject
     else if (j === segmentLyricLengthArray[i] - 2) {
+      console.log(hitObject.startTime)
       if (!flag) continue
       // 设置dialogue的endTime
       dialogue.end = convertedStartTime
@@ -181,14 +181,15 @@ const convertTxtToOsu = async (editedLyricData, osuPath, assPath) => {
       let fragment = assFragmentConstructor(assJsonExample, intervalTime, segmentStr[j])
       j = j + 1
       dialogue.slices[0].fragments.push(fragment)
+      nowTime = hitObject.startTime
     }
 
   }
 
-  //console.log(assFramework)
+  //console.log(dialogue)
   // 转换完成，输出ass
   let compiledASS = decompile(assFramework)
-  //console.log(compiledASS)
+  console.log(compiledASS)
   let assData = new Buffer(compiledASS)
   fs.writeFile(assPath, assData, 'utf8', function (err) {
     if (err) throw err;
