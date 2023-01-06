@@ -88,6 +88,13 @@ async function createWindow() {
     if (url.startsWith('https:')) shell.openExternal(url)
     return { action: 'deny' }
   })
+
+  win.on('show', () => {
+    BrowserWindow.getFocusedWindow().webContents.send(
+      "rendererMsg",
+      {msg:"主进程主动给渲染进程发送的消息"}
+    )
+  })
 }
 
 app.whenReady().then(createWindow)
@@ -115,6 +122,7 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
 
 // New window example arg: new windows url
 ipcMain.handle('open-win', (event, arg) => {

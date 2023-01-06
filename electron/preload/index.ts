@@ -126,7 +126,7 @@ const processAssFile = async (assPath: String) => {
   console.log("ipcRenderer processAssFile")
   return ipcRenderer.invoke('on-save-ass-file-event', assPath)
 }
-
+//const autoLoadOsuFile = (callback) => ipcRenderer.on('rendererMsg', callback)
 // Load file
 const loadLyricFile = async (lyricPath: String) => {
   console.log("ipcRenderer loadLyricFile" + lyricPath)

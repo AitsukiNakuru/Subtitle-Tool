@@ -17,16 +17,18 @@
         </th>
       </tr>
       </thead>
-      <tbody v-if="osuData != null && lyricData != null">
+      <tbody v-if="osuData != null || lyricData != null">
         <tr v-for="(item, index) in lyricData.segmentLyric">
           <td class="label-time">
-            <div v-if="osuData.timeLineArray.length > index" style="margin-top: 5px">
+            <div v-if="osuData != null && osuData.timeLineArray.length > index" style="margin-top: 5px">
               <div>{{osuData.timeLineArray[index].startTime}}</div>
               <div>{{osuData.timeLineArray[index].endTime}}</div>
             </div>
           </td>
           <td>
-            <v-text-field hide-details variant="outlined" v-model="lyricData.segmentLyric[index]">
+            <v-text-field hide-details variant="outlined" v-model="lyricData.segmentLyric[index]"
+                          style="font-size: 100px"
+            >
               <template v-slot:append-inner>
                 {{computedLyricData.segmentLyricLengthArray[index]}}
               </template>
@@ -34,16 +36,33 @@
           </td>
 
           <td>
-            <div>{{osuData.timeLineArray[index].objectCount}}</div>
+            <div v-if="osuData != null && osuData.timeLineArray.length > index">{{osuData.timeLineArray[index].objectCount}}</div>
           </td>
 
           <td>
-            <div v-if="osuData.timeLineArray[index].objectCount - computedLyricData.segmentLyricLengthArray[index] ===0">
-              Accept
-            </div>
-            <div v-else>
-              Wrong Answer
-            </div>
+
+            <v-chip
+              v-if="osuData != null && osuData.timeLineArray.length > index && osuData.timeLineArray[index].objectCount - computedLyricData.segmentLyricLengthArray[index] ===0"
+              color="info"
+              text-color="white"
+              close-icon="mdi-delete"
+              prepend-icon="mdi-check-circle-outline"
+              size="large"
+              style="width: 100px"
+            >
+              Correct
+            </v-chip>
+            <v-chip
+              v-else
+              color="error"
+              text-color="white"
+              close-icon="mdi-delete"
+              prepend-icon="mdi-close-circle-outline "
+              size="large"
+              style="width: 100px"
+            >
+              Wrong
+            </v-chip>
           </td>
         </tr>
       </tbody>
@@ -54,6 +73,7 @@
 <script setup lang="ts">
 import {computed, Ref, ref, watch} from 'vue';
 import eventBus from "utils/EventBus";
+
 type OsuData = {
   timeLineArray: [{
     startTime: String
@@ -62,6 +82,7 @@ type OsuData = {
   }]
 
 }
+
 type LyricData = {
   lyricPath: String
   originalLyric: String

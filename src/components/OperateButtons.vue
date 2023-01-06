@@ -35,6 +35,7 @@
 import {ref, toRaw, unref, watch} from 'vue';
 import eventBus from "utils/EventBus";
 import ConfigBoard from 'components/ConfigBoard.vue'
+import {ipcRenderer} from "electron";
 
 let isSnackbarVisible = ref(false)
 let snackbarText = ref('')
@@ -72,6 +73,8 @@ const assPathHandler = (res: any) => {
 eventBus.on('lyricPath', lyricPathHandler);
 eventBus.on('osuPath', osuPathHandler);
 eventBus.on('assPath', assPathHandler);
+
+
 
 
 // Load file
