@@ -18,7 +18,7 @@
       </v-col>
 
       <v-col>
-        <v-btn @click="modifyRulerJa">Modify rule</v-btn>
+        <v-btn @click="modifyRulerJa">Modify Rule</v-btn>
       </v-col>
 
       <v-col v-if="false">

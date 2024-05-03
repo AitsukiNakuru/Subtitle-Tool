@@ -212,12 +212,16 @@ ipcMain.handle('on-load-osu-file-event', (e, args) => {
   let nowTime = 0
   let first = true
   let timeLineArray = []
-  let TimeLineItem = {
+  let timeLineItem1 = {
     startTime: 0,
     endTime: 0,
     objectCount: 0
   }
-  let timeLineItem
+  let timeLineItem = {
+    startTime: 0,
+    endTime: 0,
+    objectCount: 0
+  }
 
   // 遍历beatmap中的每一个object
   for (const hitObject of beatmap.hitObjects) {
@@ -235,7 +239,7 @@ ipcMain.handle('on-load-osu-file-event', (e, args) => {
         timeLineArray.push(timeLineItem)
       }
       nowTime = convertedStartTime
-      timeLineItem = JSON.parse(JSON.stringify(TimeLineItem))
+      timeLineItem = JSON.parse(JSON.stringify(timeLineItem1))
       timeLineItem.startTime = convertedStartTime
     }
     nowTime = convertedStartTime

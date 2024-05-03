@@ -36,7 +36,7 @@
           </td>
 
           <td>
-            <div v-if="osuData != null && osuData.timeLineArray.length > index">{{osuData.timeLineArray[index].objectCount}}</div>
+            <div v-if="osuData != null && osuData.timeLineArray.length > index" style="font-size: 16px">{{osuData.timeLineArray[index].objectCount}}</div>
           </td>
 
           <td>
@@ -92,6 +92,7 @@ type LyricData = {
 
 let lyricData = ref()
 const lyricDataHandler = (res: any) => {
+  console.log(res)
   lyricData.value = res
 }
 eventBus.on('lyricData', lyricDataHandler)
@@ -127,6 +128,7 @@ watch(lyricData, (value, oldValue, onCleanup) => {
 
 let osuData = ref<OsuData>()
 const osuDataHandler = (res: any) => {
+  console.log(res)
   osuData.value = res
 }
 eventBus.on('osuData', osuDataHandler)
